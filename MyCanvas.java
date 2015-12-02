@@ -5,7 +5,7 @@ public class MyCanvas extends Canvas{
 	FigureList fl;
 
 	MyCanvas() {
-		fl = new FigureList();
+		this.fl = new FigureList();
 	}
 
 	@Override public void update( Graphics g ) {
@@ -13,20 +13,20 @@ public class MyCanvas extends Canvas{
 	}
 
 	@Override public void paint( Graphics g ) {
-		for( int i=0; i<fl.getLength(); i++ ) {
-			fl.getFigure(i).paint(g);
+		for( int i=0; i<this.fl.getLength(); i++ ) {
+			this.fl.getFigure(i).paint(g);
 		}
-		if( fl.getLength() == 0 ) {
+		if( this.fl.getLength() == 0 ) {
 			g.clearRect( 0, 0, 9999, 9999 );
 			g.setColor( new Color( 0, 0, 0 ) );
 		}
 	}
 
 	public void push( Figure f ) {
-		fl.push( f );
+		this.fl.push( f );
 	}
 
 	public int getLength() {
-		return fl.getLength();
+		return this.fl.getLength();
 	}
 }

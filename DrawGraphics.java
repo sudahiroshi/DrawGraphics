@@ -21,7 +21,7 @@ public class DrawGraphics extends Frame{
 		dg.draw();
 	}
 
-	/** コンストラクタ兼プログラム本体 */
+	/** コンストラクタ */
 	public DrawGraphics() {
 		super( "DrawGraphics" );
 		setSize( 640, 480 );
@@ -30,24 +30,22 @@ public class DrawGraphics extends Frame{
 				System.exit(0);
 			}
 		});
-		c = new MyCanvas();
+		this.c = new MyCanvas();
 		add( c );
 		setVisible( true );
 	}
 
 	/**
-	 * 描画メソッド
+	 * 描画に使用するメソッド
 	 * @param g 描画オブジェクト
 	 */
 	@Override public void paint( Graphics g ){
-		c.repaint();
+		this.c.repaint();
 	}
 
+	/** 図形を描画するためにpushするメソッド */
 	public void draw() {
-		c.push( new Line( 0, 0, 500, 400 ) );
-		c.push( new Line( 300, 0, 300, 400 ) );
-		for( int i=0; i<10; i+=3 ) {
-			c.push( new Line( i, 0, 640-i, 480 ) );
-		}
+		this.c.push( new Line( 0, 0, 500, 400 ) );
+		this.c.push( new Line( 300, 0, 300, 400 ) );
 	}
 }
